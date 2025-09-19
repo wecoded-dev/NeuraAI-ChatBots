@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroSphere AI | Advanced Intelligence Platform</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Playfair+Display:wght@700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Lenis CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.0.45/dist/lenis.css">
+    
+    <style>
+        :root {
+            --primary-white: #ffffff;
+            --secondary-black: #000000;
+            --accent-gray: #1a1a1a;
+            --light-gray: #f5f5f5;
+            --medium-gray: #888888;
+            --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --section-spacing: 12rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-white);
+            color: var(--secondary-black);
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            letter-spacing: -0.03em;
+            font-weight: 800;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        h3 {
+            font-size: 2.2rem;
+        }
+        
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            color: var(--medium-gray);
+            font-weight: 400;
+        }
+        
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary-black);
+        }
+        
+        /* Layout */
+        .section {
+            padding: var(--section-spacing) 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-custom {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            padding: 1.8rem 3rem;
+            transition: var(--transition-slow);
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        .navbar.scrolled {
+            padding: 1.2rem 3rem;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--secondary-black);
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-link {
+            color: var(--secondary-black);
+            font-weight: 500;
+            margin: 0 1.2rem;
+            transition: var(--transition-fast);
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-black);
+            transition: var(--transition-fast);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: var(--secondary-black);
+            color: var(--primary-white);
+            border: none;
+            padding: 0.9rem 2.2rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            margin-left: 1.5rem;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary-white);
+            color: var(--secondary-black);
+            box-shadow: 0 0 0 1.5px var(--secondary-black);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 8rem;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-title {
+            font-size: 6.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.05;
+            position: relative;
+        }
+        
+        .hero-title span {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.6rem;
+            max-width: 700px;
+            margin-bottom: 4rem;
+            color: var(--medium-gray);
+            font-weight: 400;
+        }
+        
+        .btn-primary {
+            background: var(--secondary-black);
+            color: var(--primary-white);
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--primary-white);
+            transition: var(--transition-fast);
+            z-index: -1;
+        }
+        
+        .btn-primary:hover {
+            color: var(--secondary-black);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary:hover:before {
+            width: 100%;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary-black);
+            border: 2px solid var(--secondary-black);
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            margin-left: 1.5rem;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--secondary-black);
+            color: var(--primary-white);
+            transform: translateY(-3px);
+        }
+        
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+            margin-top: 6rem;
+        }
+        
+        .feature-card {
+            padding: 3.5rem;
+            border-radius: 30px;
+            background: var(--primary-white);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-black);
+            transition: var(--transition-fast);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            background: var(--secondary-black);
+            color: var(--primary-white);
+            border-radius: 60px;
+            overflow: hidden;
+            margin: 8rem 0;
+            position: relative;
+        }
+        
+        .demo-content {
+            padding: 8rem 5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .demo-section .section-title:after {
+            background: var(--primary-white);
+        }
+        
+        /* Particles Container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        /* Canvas for RoughJS */
+        .sketch-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Blur effects */
+        .blur-background {
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+        }
+        
+        .blur-card {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition-slow);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 3D Rotate Element */
+        .rotate-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: var(--transition-slow);
+        }
+        
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .stat-number {
+            font-size: 4.5rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #000000, #333333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+        
+        /* Testimonials */
+        .testimonial-slider {
+            margin-top: 5rem;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            padding: 4rem;
+            border-radius: 30px;
+            background: var(--primary-white);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            margin: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--secondary-black);
+            margin-right: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .author-details h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .author-role {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 10rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-title {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            margin-top: 4rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--light-gray);
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 5rem;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 2.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary-black);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1.2rem;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            font-size: 1.1rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-black);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 8rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1600px) {
+            h1 {
+                font-size: 5rem;
+            }
+            
+            .hero-title {
+                font-size: 5.5rem;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 4.5rem;
+            }
+            
+            .hero-title {
+                font-size: 4.8rem;
+            }
+            
+            .cta-title {
+                font-size: 3.8rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3.8rem;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .section {
+                padding: 6rem 1.5rem;
+            }
+            
+            .demo-content {
+                padding: 5rem 3rem;
+            }
+            
+            .cta-title {
+                font-size: 3.2rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 1rem 2.2rem;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.2rem;
+            }
+            
+            h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero {
+                padding-top: 6rem;
+            }
+            
+            .navbar {
+                padding: 1.5rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.6rem;
+            }
+            
+            .section {
+                padding: 5rem 1.5rem;
+            }
+            
+            .demo-content {
+                padding: 4rem 2rem;
+            }
+            
+            .feature-card {
+                padding: 2.5rem;
+            }
+            
+            .testimonial-card {
+                padding: 3rem 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2.8rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .container-custom {
+                padding: 0 1.5rem;
+            }
+            
+            .navbar {
+                padding: 1.2rem;
+            }
+            
+            .section-title:after {
+                width: 50px;
+                height: 3px;
+                bottom: -12px;
+            }
+            
+            .stat-number {
+                font-size: 3.5rem;
+            }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container-custom">
+            <a class="navbar-brand" href="#">NeuroSphere<span class="mono">AI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#solutions">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-btn">Get Started</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div id="particles-js"></div>
+        <canvas class="sketch-canvas" id="hero-sketch"></canvas>
+        
+        <div class="container-custom">
+            <div class="hero-content">
+                <h1 class="hero-title" id="main-title">Reimagining Intelligence <span class="mono">with Advanced AI</span></h1>
+                <p class="hero-subtitle">NeuroSphere is a next-generation AI platform that transforms how businesses leverage artificial intelligence for complex problem solving, innovation, and growth.</p>
+                <div class="btn-container">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">View Demo</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blur-background" style="position: absolute; top: 20%; right: 10%; width: 500px; height: 500px; border-radius: 50%; z-index: 0; background: rgba(0, 0, 0, 0.03);"></div>
+        <div class="blur-background" style="position: absolute; bottom: 10%; left: 5%; width: 400px; height: 400px; border-radius: 50%; z-index: 0; background: rgba(0, 0, 0, 0.03);"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container-custom">
+            <div class="stats-container">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" id="stat1">0</div>
+                    <div class="stat-label">AI Models Deployed</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" id="stat2">0</div>
+                    <div class="stat-label">Global Customers</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" id="stat3">0</div>
+                    <div class="stat-label">Data Points Processed</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number" id="stat4">99.9%</div>
+                    <div class="stat-label">Uptime Reliability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container-custom">
+            <h2 class="section-title" data-aos="fade-up">Powerful AI Capabilities</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Our platform offers cutting-edge AI solutions for modern businesses seeking transformative results.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="feature-icon material-icons-round">auto_awesome</span>
+                    <h3>Neural Processing</h3>
+                    <p>Advanced neural networks that learn and adapt to your data patterns for unprecedented accuracy and insights.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="feature-icon material-icons-round">insights</span>
+                    <h3>Predictive Analytics</h3>
+                    <p>Forecast trends and behaviors with our sophisticated predictive modeling algorithms and machine learning.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <span class="feature-icon material-icons-round">translate</span>
+                    <h3>Natural Language</h3>
+                    <p>Understand and generate human language with our state-of-the-art NLP models and sentiment analysis.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <span class="feature-icon material-icons-round">visibility</span>
+                    <h3>Computer Vision</h3>
+                    <p>Process and analyze visual data with our advanced image recognition and object detection technology.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <span class="feature-icon material-icons-round">smart_toy</span>
+                    <h3>Automated Reasoning</h3>
+                    <p>Solve complex problems with our AI systems that can reason, make decisions, and learn from outcomes.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                    <span class="feature-icon material-icons-round">security</span>
+                    <h3>Secure & Private</h3>
+                    <p>Enterprise-grade security ensuring your data remains private and protected at all times with encryption.</p>
+                </div>
+            </div>
+        </div>
+        
+        <canvas class="sketch-canvas" id="features-sketch"></canvas>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section section" id="demo">
+        <div class="container-custom">
+            <div class="demo-content">
+                <h2 class="section-title" data-aos="fade-up">Experience the Power</h2>
+                <p data-aos="fade-up" data-aos-delay="100">See how our AI platform can transform your business operations, decision-making processes, and customer experiences.</p>
+                
+                <div data-aos="fade-up" data-aos-delay="300" style="margin-top: 4rem;">
+                    <button class="btn-primary" style="background: var(--primary-white); color: var(--secondary-black);">View Live Demo</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blur-background" style="position: absolute; top: 30%; right: -50px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255, 255, 255, 0.1);"></div>
+        <div class="blur-background" style="position: absolute; bottom: -50px; left: 20%; width: 400px; height: 400px; border-radius: 50%; background: rgba(255, 255, 255, 0.1);"></div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container-custom">
+            <h2 class="section-title" data-aos="fade-up">Trusted by Industry Leaders</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Hear from companies that have transformed their operations with our AI platform.</p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-text">"NeuroSphere's AI platform has completely revolutionized our data analytics capabilities. We've seen a 40% increase in operational efficiency since implementation."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-details">
+                            <h4>Sarah Johnson</h4>
+                            <p class="author-role">CTO, TechInnovate Inc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container-custom">
+            <div class="cta-content">
+                <h2 class="cta-title" data-aos="fade-up">Ready to Transform Your Business with AI?</h2>
+                <p data-aos="fade-up" data-aos-delay="100">Join thousands of forward-thinking companies leveraging our advanced AI platform to drive innovation and growth.</p>
+                <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                    <button class="btn-primary">Get Started Now</button>
+                    <button class="btn-secondary">Schedule a Demo</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blur-background" style="position: absolute; top: 10%; left: 10%; width: 400px; height: 400px; border-radius: 50%; z-index: 0; background: rgba(0, 0, 0, 0.03);"></div>
+        <div class="blur-background" style="position: absolute; bottom: 10%; right: 10%; width: 500px; height: 500px; border-radius: 50%; z-index: 0; background: rgba(0, 0, 0, 0.03);"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-custom">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>NeuroSphere<span class="mono">AI</span></h4>
+                    <p>Advanced artificial intelligence solutions for modern businesses seeking transformative growth.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <span class="material-icons-round">facebook</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="material-icons-round">link</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="material-icons-round">photo_camera</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="material-icons-round">play_arrow</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Demo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 NeuroSphere AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/roughjs@4.5.2/bundled/rough.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
+
+    <script>
+        // Initialize libraries
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1200,
+                once: true,
+                easing: 'ease-out-cubic'
+            });
+            
+            // Initialize Lenis smooth scroll
+            const lenis = new Lenis({
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: 'vertical',
+                gestureOrientation: 'vertical',
+                smoothWheel: true
+            });
+            
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+            
+            // Initialize Particles.js
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 120, density: { enable: true, value_area: 1000 } },
+                    color: { value: "#000000" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.6, random: true },
+                    size: { value: 4, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 180,
+                        color: "#000000",
+                        opacity: 0.5,
+                        width: 1.2
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2.5,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Initialize RoughJS for sketchy elements
+            const rough = RoughJS;
+            const heroCanvas = document.getElementById('hero-sketch');
+            const featuresCanvas = document.getElementById('features-sketch');
+            
+            if (heroCanvas) {
+                const ctx = heroCanvas.getContext('2d');
+                const rc = rough.canvas(heroCanvas);
+                
+                // Set canvas size
+                heroCanvas.width = heroCanvas.offsetWidth;
+                heroCanvas.height = heroCanvas.offsetHeight;
+                
+                // Draw sketchy elements
+                rc.rectangle(100, 100, 250, 250, { roughness: 1.5, fill: 'rgba(0,0,0,0.03)', fillStyle: 'solid' });
+                rc.circle(heroCanvas.width - 150, 150, 120, { roughness: 2, stroke: 'rgba(0,0,0,0.1)', strokeWidth: 2 });
+                rc.ellipse(heroCanvas.width/2, heroCanvas.height - 200, 200, 120, { roughness: 2.5, stroke: 'rgba(0,0,0,0.1)', strokeWidth: 2 });
+                rc.arc(heroCanvas.width - 300, heroCanvas.height - 100, 180, 0, Math.PI, false, { roughness: 1.8, stroke: 'rgba(0,0,0,0.1)', strokeWidth: 1.8 });
+            }
+            
+            // GSAP animations
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate hero elements
+            gsap.from('.hero-title', {
+                duration: 2,
+                y: 150,
+                opacity: 0,
+                ease: 'power3.out',
+                stagger: 0.2
+            });
+            
+            gsap.from('.hero-subtitle', {
+                duration: 1.8,
+                y: 80,
+                opacity: 0,
+                delay: 0.5,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.btn-container', {
+                duration: 1.8,
+                y: 50,
+                opacity: 0,
+                delay: 0.8,
+                ease: 'power3.out'
+            });
+            
+            // Animate feature cards on scroll
+            gsap.utils.toArray('.feature-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    y: 80,
+                    opacity: 0,
+                    duration: 1.5,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Animate stats counting
+            function animateCounter(el, target, duration) {
+                const obj = { value: 0 };
+                gsap.to(obj, {
+                    value: target,
+                    duration: duration,
+                    onUpdate: () => {
+                        el.textContent = Math.floor(obj.value).toLocaleString();
+                    },
+                    ease: "power2.out"
+                });
+            }
+            
+            // Create observer for stats section
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(document.getElementById('stat1'), 12500, 3);
+                        animateCounter(document.getElementById('stat2'), 3500, 2.5);
+                        animateCounter(document.getElementById('stat3'), 9500000, 3.5);
+                        statsObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statsObserver.observe(document.querySelector('.stats-container'));
+            
+            // Anime.js animations for floating elements
+            anime({
+                targets: '.blur-background',
+                translateX: function() {
+                    return anime.random(-50, 50);
+                },
+                translateY: function() {
+                    return anime.random(-50, 50);
+                },
+                easing: 'easeInOutQuad',
+                duration: 15000,
+                direction: 'alternate',
+                loop: true
+            });
+            
+            // Mo.js animations for button interactions
+            const burst1 = new mojs.Burst({
+                parent: '.btn-primary',
+                radius: { 0: 150 },
+                count: 12,
+                children: {
+                    shape: 'circle',
+                    fill: { 'black': 'white' },
+                    duration: 2000
+                }
+            });
+            
+            document.querySelector('.btn-primary').addEventListener('click', function(e) {
+                burst1.tune({ x: e.pageX, y: e.pageY }).replay();
+            });
+            
+            // Handle scroll animations for navbar
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Barba.js for page transitions (setup)
+            Barba.Pjax.start();
+            Barba.Prefetch.init();
+            
+            // Resize event listener for canvases
+            window.addEventListener('resize', function() {
+                if (heroCanvas) {
+                    heroCanvas.width = heroCanvas.offsetWidth;
+                    heroCanvas.height = heroCanvas.offsetHeight;
+                }
+            });
+            
+            // 3D tilt effect for feature cards
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const cardRect = card.getBoundingClientRect();
+                    const x = e.clientX - cardRect.left;
+                    const y = e.clientY - cardRect.top;
+                    
+                    const centerX = cardRect.width / 2;
+                    const centerY = cardRect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    gsap.to(card, {
+                        duration: 0.5,
+                        rotateX: rotateX,
+                        rotateY: rotateY,
+                        transformPerspective: 1000
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    gsap.to(card, {
+                        duration: 0.8,
+                        rotateX: 0,
+                        rotateY: 0,
+                        ease: 'elastic.out(1, 0.3)'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
